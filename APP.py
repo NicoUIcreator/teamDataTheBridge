@@ -1,3 +1,5 @@
+
+
 '''
 
 Visualizamos la variable Clase
@@ -39,6 +41,7 @@ pd.DataFrame([survived_embark,dead_embark],index=['Survived','Dead'])
 embark_df.plot(kind='bar', stacked=True) plt.xlabel('Embarked')
 plt.ylabel('Number of passengers') plt.title('Survival rate by port of
 embarkation') st.pyplot() 
+
 
 Importamos librerías
 '''
@@ -96,4 +99,17 @@ pd.DataFrame([survived_age,dead_age],index=['Survived','Dead'])
 age_df.plot(kind='bar', stacked=True) plt.xlabel('Age Group') plt.ylabel('Number of
 passengers')
 plt.title('Distribution of passengers by age and survival') st.pyplot()
+
+                                                                      
+                                                                         
+'''
+
+Hacemos Featuring Engineering
+'''
+train_df['Sex'] = train_df['Sex'].map({'male': 0, 'female': 1})
+test_df['Sex'] = test_df['Sex'].map({'male': 0, 'female': 1})
+train_df['Sex'].fillna(train_df['Age'].mean(), inplace=True)
+test_df['Sex'].fillna(test_df['Age'].mean(), inplace=True) 
+                                                                         
+
 
